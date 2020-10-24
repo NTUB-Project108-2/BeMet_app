@@ -16,7 +16,7 @@ import androidx.core.app.NotificationCompat;
 
 import java.io.ByteArrayOutputStream;
 
-import tw.com.businessmeet.FriendsIntroductionActivity;
+import tw.com.businessmeet.FriendsTimelineActivity;
 import tw.com.businessmeet.R;
 import tw.com.businessmeet.background.NotificationService;
 import tw.com.businessmeet.bean.UserInformationBean;
@@ -106,7 +106,7 @@ public class NotificationHelper {
                             FriendsIntroductionActivity.class);*/
 
         Intent intent = new Intent();
-        intent.setClass(notificationService, FriendsIntroductionActivity.class);
+        intent.setClass(notificationService, FriendsTimelineActivity.class);
         Bundle bundle = new Bundle();
         bundle.putString("friendId", userInformationBean.getUserId());
         intent.putExtras(bundle);
