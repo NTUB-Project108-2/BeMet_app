@@ -35,7 +35,7 @@ public class FriendDAO {
     }
 
     public void add(FriendBean friendBean) {
-        if (friendBean.getRemark() == null || friendBean.getRemark().equals("")) {
+        if (friendBean.getRemark() == null) {
             friendBean.setRemark("");
         }
         ContentValues values = putValues(friendBean);
@@ -47,6 +47,10 @@ public class FriendDAO {
         ContentValues values = putValues(friendBean);
         values.put(column[6], dataFormat.format(new Date()));
         db.update(tableName, values, whereClause, new String[]{String.valueOf(friendBean.getFriendNo())});
+    }
+
+    public void delete(Integer friendNo) {
+        db.delete(tableName, whereClause, new String[]{friendNo.toString()});
     }
 
     public Cursor search(FriendBean friendBean) {
